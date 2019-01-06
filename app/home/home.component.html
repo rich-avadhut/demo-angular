@@ -1,0 +1,26 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <h3>Posts</h3>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="!progressFlag">
+            <i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+        </div>
+        <div class="row" *ngIf="progressFlag">
+            <div class="col-md-12">
+                <div class="card my-2" *ngFor="let post of posts">
+                    <div class="card-body">
+                        <h4 class="card-title">{{post.title}}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Posted By - {{post.userId}}</h6>
+                        <p class="card-text">{{post.body}}</p>
+                        <button class="btn btn-primary">View Comments</button>
+
+                        <app-comment></app-comment>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
