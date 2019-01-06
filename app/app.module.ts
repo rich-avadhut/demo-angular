@@ -15,6 +15,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
 import { CommentComponent } from './comment/comment.component';
+import { SlicePipe } from './slice.pipe';
+import { SubstringPipe } from './substring.pipe';
 
 const routes : Routes = [
   {
@@ -57,7 +59,9 @@ const routes : Routes = [
     ProductComponent,
     ProductDetailsComponent,
     ProductReviewsComponent,
-    CommentComponent
+    CommentComponent,
+    SlicePipe,
+    SubstringPipe
   ],
   imports: [
     RouterModule.forRoot(routes),
