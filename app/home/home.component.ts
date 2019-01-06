@@ -1,5 +1,6 @@
 import { Posts } from './Posts';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,10 @@ export class HomeComponent {
 
   posts: Posts[]
   progressFlag: boolean
-  constructor() {
+  constructor(public http : HttpClient) {
     this.progressFlag = false
-      fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res=>res.json())
-      .then(data => {
+    this.http.get<Posts[]>('https://jsonplaceholder.typicode.com/posts')
+      .subscribe(data => {
         this.posts = data
         this.progressFlag = true
       })

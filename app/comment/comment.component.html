@@ -1,3 +1,5 @@
-<p>
-  comment works!
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action" *ngFor="let comment of comments">
+    {{comment.body}}
+  </a>
+</div>

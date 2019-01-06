@@ -11,17 +11,16 @@ export class CommentComponent implements OnInit {
   id : number
 
   progressFlag : boolean
-  
-  constructor() {
+  comments: Comment[]
+  constructor(public http : HttpClient) {
     this.progressFlag = true
    }
 
   ngOnInit() {
     this.progressFlag = false
-      fetch('https://jsonplaceholder.typicode.com/comments/?postId'+this.id)
-      .then(res=>res.json())
-      .then(data => {
-       // this.posts = data
+    this.http.get<Comment[]>('https://jsonplaceholder.typicode.com/comments/?postId='+this.id)
+      .subscribe(data => {
+        this.comments = data
         this.progressFlag = true
       })
   }
