@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card my-2" *ngFor="let post of posts">
                     <div class="card-body">
-                        <h4 class="card-title">{{post.title | substring:0:10}}</h4>
+                        <h4 class="card-title" appZoom>{{post.title | substring:0:10}}</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Posted By - {{post.userId}}</h6>
                         <p class="card-text">{{post.body | slice:0:100}}</p>
                         <app-comment [id]="post.id"></app-comment>
